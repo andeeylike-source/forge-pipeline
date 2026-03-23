@@ -154,7 +154,7 @@ function App(){
     React.createElement("header",{style:{background:T.sf,borderBottom:"1px solid "+T.bd,padding:"0 20px",height:44,display:"flex",alignItems:"center",justifyContent:"space-between",flexShrink:0}},
       React.createElement("div",{style:{display:"flex",alignItems:"center",gap:10}},
         React.createElement("span",{style:{fontFamily:fd,fontSize:20,fontWeight:700,color:T.ac}},"FORGE"),
-        React.createElement("span",{style:{fontSize:8,color:T.txD,textTransform:"uppercase"}},"openrouter"),
+        React.createElement("span",{style:{fontSize:8,color:T.txD,textTransform:"uppercase"}},"openrouter · gemini"),
         React.createElement("span",{style:{fontSize:8,color:key?(kStat==="ok"?T.ok:T.ac):T.err}},"● "+(key?(kStat==="ok"?"OK":"ключ"):"нет ключа"))
       ),
       React.createElement("button",{onClick:function(){setShowK(true)},style:{background:T.sf2,border:"1px solid "+T.bd,borderRadius:3,color:T.tx,fontFamily:fn,fontSize:10,padding:"4px 10px",cursor:"pointer"}},"🔑 API")
@@ -215,7 +215,7 @@ function App(){
           React.createElement("span",{style:{fontFamily:fn,fontSize:10,color:T.txD,textTransform:"uppercase"}},(debug?"▾":"▸")+" Детали")),
         debug&&React.createElement("div",null,
           ana&&React.createElement("div",{style:{background:T.sf,border:"1px solid "+T.blu,borderRadius:4,padding:"10px 12px",marginBottom:12}},
-            React.createElement("div",{style:{fontFamily:fn,fontSize:9,color:T.blu,fontWeight:600,marginBottom:6}},"GPT-4o АНАЛИЗ"),
+            React.createElement("div",{style:{fontFamily:fn,fontSize:9,color:T.blu,fontWeight:600,marginBottom:6}},"GEMINI АНАЛИЗ"),
             React.createElement("pre",{style:{fontFamily:fn,fontSize:10,color:T.tx,lineHeight:1.7,margin:0,whiteSpace:"pre-wrap",wordBreak:"break-word",maxHeight:200,overflow:"auto"}},ana)),
           React.createElement("div",{style:{display:"grid",gridTemplateColumns:"repeat("+Math.min(total,4)+",1fr)",gap:6,marginBottom:12}},
             results.map(function(im,idx){return React.createElement("div",{key:idx,style:{background:T.sf,border:"1px solid "+(im?T.bd:T.sf3),borderRadius:4,overflow:"hidden",opacity:im?1:.3}},
@@ -237,10 +237,10 @@ function App(){
     // Key modal
     showK&&React.createElement("div",{style:{position:"fixed",inset:0,background:"rgba(0,0,0,.9)",zIndex:2000,display:"flex",justifyContent:"center",alignItems:"center"},onClick:function(){setShowK(false)}},
       React.createElement("div",{onClick:function(e){e.stopPropagation()},style:{background:T.sf,border:"1px solid "+T.bd,borderRadius:6,width:420,padding:24}},
-        React.createElement("h3",{style:{fontFamily:fd,fontSize:18,color:T.ac,margin:"0 0 14px"}},"OpenRouter API Key"),
+        React.createElement("h3",{style:{fontFamily:fd,fontSize:18,color:T.ac,margin:"0 0 14px"}},"OpenRouter API Key (Gemini)"),
         React.createElement("input",{value:key,onChange:function(e){setKey(e.target.value);setKStat(null)},placeholder:"sk-or-v1-...",type:"password",
           style:{width:"100%",background:T.sf2,color:T.tx,border:"1px solid "+T.bd,borderRadius:3,padding:"8px 10px",fontFamily:fn,fontSize:12,outline:"none",boxSizing:"border-box",marginBottom:8}}),
-        React.createElement("p",{style:{fontFamily:fn,fontSize:9,color:T.txD,margin:"0 0 10px"}},"openrouter.ai → Keys → Create Key"),
+        React.createElement("p",{style:{fontFamily:fn,fontSize:9,color:T.txD,margin:"0 0 10px"}},"openrouter.ai → Keys → Create Key · используйте OpenRouter key для Gemini"),
         kStat==="ok"&&React.createElement("div",{style:{fontFamily:fn,fontSize:11,color:T.ok,padding:"8px 10px",background:T.ok+"15",borderRadius:3,marginBottom:10}},"✓ Ключ работает"+(kErr?" · "+kErr:"")),
         kStat==="error"&&React.createElement("div",{style:{fontFamily:fn,fontSize:11,color:T.err,padding:"8px 10px",background:T.err+"15",borderRadius:3,marginBottom:10}},"✗ "+(kErr||"Невалидный")),
         kStat==="checking"&&React.createElement("div",{style:{fontFamily:fn,fontSize:11,color:T.ac,marginBottom:10}},
